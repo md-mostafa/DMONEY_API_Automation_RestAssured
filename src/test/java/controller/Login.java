@@ -23,11 +23,11 @@ public class Login {
                     .assertThat().statusCode(200).extract().response();
 
         JsonPath jsonPath = res.jsonPath();
+        jsonPath.prettyPrint();
         String token = jsonPath.get("token");
 
         ConfigUtils.setProperty("token", token);
         return jsonPath.get("message");
-
     }
 
     public String loginWithInvalidEmail(String email, String pass) {
