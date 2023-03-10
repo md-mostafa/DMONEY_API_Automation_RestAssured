@@ -3,8 +3,6 @@ package controller;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import lombok.Getter;
-import lombok.Setter;
 import model.UserModel;
 import utils.ConfigUtils;
 
