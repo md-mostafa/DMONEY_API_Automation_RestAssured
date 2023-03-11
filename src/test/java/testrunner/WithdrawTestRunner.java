@@ -1,11 +1,35 @@
 package testrunner;
 
-import controller.Withdraw;
+import controller.*;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class WithdrawTestRunner {
+    Login login;
+    Create create;
+    Deposit deposit;
+    Balance balance;
     Withdraw withdraw;
+    @BeforeClass
+    public void setupUsers(){
+        login = new Login();
+        login.loginWithValidCreds("salman@roadtocareer.net", "1234");
+
+        create = new Create();
+        create.createUserWithValidCreds("Customer");
+        create.createUserWithValidCreds("Agent");
+        create.createSecondUserWithValidCreds("Customer");
+
+        deposit = new Deposit();
+        deposit.depositToAgentWithValidAgentNum();
+        deposit.depositToCustomerFromValidAgent();
+
+        balance = new Balance();
+        balance.checkCustomerBalanceWithValidCreds();
+
+    }
+
 
     @Test(priority = 1, description = "Withdrawing money from invalid agent number")
     public void WithdrawMoneyFromInvalidAgent(){

@@ -1,12 +1,26 @@
 package testrunner;
 
-import controller.Deposit;
-import controller.Login;
+import controller.*;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class DepositTestRunner {
+    Balance userBalance;
+    Login login;
+    Create create;
     Deposit deposit;
+    @BeforeClass
+    public void setupUsers(){
+        login = new Login();
+        login.loginWithValidCreds("salman@roadtocareer.net", "1234");
+
+        create = new Create();
+        create.createUserWithValidCreds("Customer");
+        create.createUserWithValidCreds("Agent");
+        create.createSecondUserWithValidCreds("Customer");
+
+    }
 
     @Test(priority = 1, description = "Deposit to agent with invalid agent phone number")
     public void DepositToAgentWithInvalidPhone(){

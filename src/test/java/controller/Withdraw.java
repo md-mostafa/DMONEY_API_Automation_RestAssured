@@ -92,7 +92,7 @@ public class Withdraw {
         setBalanceBeforeWithdraw(Integer.parseInt(ConfigUtils.getProperty("user_balance_1")));
         setWithdrawAmount(amount);
 
-        ConfigUtils.setProperty("user_balance_1", jsonPath.get("currentBalance"));
+        ConfigUtils.setProperty("user_balance_1", jsonPath.get("currentBalance")+"");
 
     }
 }
