@@ -15,21 +15,6 @@ public class CheckBalanceTestRunner {
     Create create;
     Deposit deposit;
 
-    @BeforeClass
-    public void setupUsers(){
-        login = new Login();
-        login.loginWithValidCreds("salman@roadtocareer.net", "1234");
-
-        create = new Create();
-        create.createUserWithValidCreds("Customer");
-        create.createUserWithValidCreds("Agent");
-        create.createSecondUserWithValidCreds("Customer");
-
-        deposit = new Deposit();
-        deposit.depositToAgentWithValidAgentNum();
-        deposit.depositToCustomerFromValidAgent();
-
-    }
 
     @Test(priority = 1, description = "Creating user with existing email")
     public void CheckUserBalanceWithInvalidPhone(){

@@ -8,30 +8,6 @@ import org.testng.annotations.Test;
 public class SendMoneyTestRunner {
 
     SendMoney sendMoney;
-    Login login;
-    Create create;
-    Deposit deposit;
-    Balance balance;
-
-    @BeforeClass
-    public void setupUsers(){
-        login = new Login();
-        login.loginWithValidCreds("salman@roadtocareer.net", "1234");
-
-        create = new Create();
-        create.createUserWithValidCreds("Customer");
-        create.createUserWithValidCreds("Agent");
-        create.createSecondUserWithValidCreds("Customer");
-
-        deposit = new Deposit();
-        deposit.depositToAgentWithValidAgentNum();
-        deposit.depositToCustomerFromValidAgent();
-
-        balance = new Balance();
-        balance.checkCustomerBalanceWithValidCreds();
-
-    }
-
 
     @Test(priority = 1, description = "Send money to invalid customer phone number")
     public void SendMoneyToInvalidCustomerAccount(){

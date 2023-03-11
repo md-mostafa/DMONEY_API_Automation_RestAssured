@@ -10,17 +10,6 @@ public class DepositTestRunner {
     Login login;
     Create create;
     Deposit deposit;
-    @BeforeClass
-    public void setupUsers(){
-        login = new Login();
-        login.loginWithValidCreds("salman@roadtocareer.net", "1234");
-
-        create = new Create();
-        create.createUserWithValidCreds("Customer");
-        create.createUserWithValidCreds("Agent");
-        create.createSecondUserWithValidCreds("Customer");
-
-    }
 
     @Test(priority = 1, description = "Deposit to agent with invalid agent phone number")
     public void DepositToAgentWithInvalidPhone(){

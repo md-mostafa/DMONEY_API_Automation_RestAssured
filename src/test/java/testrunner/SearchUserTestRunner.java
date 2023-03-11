@@ -9,19 +9,6 @@ import org.testng.annotations.Test;
 
 public class SearchUserTestRunner {
     Search search;
-    Login login;
-    Create create;
-    @BeforeClass
-    public void doLoginAndCreateUser(){
-        login = new Login();
-        create = new Create();
-        login.loginWithValidCreds("salman@roadtocareer.net", "1234");
-
-        create.createUserWithValidCreds("Customer");
-        create.createSecondUserWithValidCreds("Customer");
-        create.createUserWithValidCreds("Agent");
-
-    }
 
     @Test(priority = 1, description = "Search User by invalid phone")
     public void SearchUserWithInvalidPhoneNumber(){

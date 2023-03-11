@@ -7,13 +7,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class CreateUserTestRunner {
-    Login login;
-
-    @BeforeClass
-    public void doLogin(){
-        login = new Login();
-        login.loginWithValidCreds("salman@roadtocareer.net", "1234");
-    }
     Create user;
 
     @Test(priority = 1, description = "Creating user with existing email")

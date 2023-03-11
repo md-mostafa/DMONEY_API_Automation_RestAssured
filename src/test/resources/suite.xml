@@ -1,0 +1,54 @@
+<suite thread-count="1" verbose="1" name="Dmoney API Test RestAssured">
+    <test name="Login Test">
+        <classes>
+            <class name="testrunner.LoginTestRunner" />
+        </classes>
+    </test>
+
+    <test name="Create User Test">
+        <classes>
+            <class name="testrunner.CreateUserTestRunner" />
+        </classes>
+    </test>
+
+    <test name="Search User Test">
+        <classes>
+            <class name="testrunner.SearchUserTestRunner" />
+        </classes>
+    </test>
+
+    <test name="Deposit Test">
+        <classes>
+            <class name="testrunner.DepositTestRunner" />
+        </classes>
+    </test>
+
+    <test name="Check Balance Test">
+        <classes>
+            <class name="testrunner.CheckBalanceTestRunner" />
+        </classes>
+    </test>
+
+    <test name="Check Statement Test">
+        <classes>
+            <class name="testrunner.CheckStatementTestRunner" />
+        </classes>
+    </test>
+
+    <test name="Withdraw Test">
+        <classes>
+            <class name="testrunner.WithdrawTestRunner" />
+        </classes>
+    </test>
+
+
+    <test name="Send Money Test">
+        <classes>
+            <class name="testrunner.SendMoneyTestRunner" />
+        </classes>
+    </test>
+
+
+
+
+</suite>
