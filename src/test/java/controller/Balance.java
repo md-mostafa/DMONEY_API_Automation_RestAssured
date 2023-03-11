@@ -42,6 +42,9 @@ public class Balance {
                         .assertThat().statusCode(200).extract().response();
 
         JsonPath jsonPath = res.jsonPath();
+        int balance_current = jsonPath.get("balance");
+        ConfigUtils.setProperty("user_balance_1", balance_current+"");
+
         jsonPath.prettyPrint();
         return jsonPath.get("message");
     }
