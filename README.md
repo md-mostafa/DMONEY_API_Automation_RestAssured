@@ -41,6 +41,10 @@ allure serve allure-results
 ```
 
 ### Generated Reports
+![image](https://user-images.githubusercontent.com/41513761/224503737-739490ce-4e6e-4bec-92da-9dd3596cef76.png)
+![image](https://user-images.githubusercontent.com/41513761/224503824-87e0d6d8-bf9f-45e5-8e6b-2da46b790d7f.png)
+![image](https://user-images.githubusercontent.com/41513761/224503803-4b8f42e2-b39f-47a3-9454-bb1d80060e83.png)
+
 
 
 #### Feedback
