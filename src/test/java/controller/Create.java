@@ -103,4 +103,47 @@ public class Create {
         jsonRes.prettyPrint();
         return jsonRes.get("message");
     }
+
+
+
+    public String createSecondUserWithValidCreds(String role){
+        RandomUtils randomUser = new RandomUtils();
+        String name = randomUser.getFullName();
+        String email = randomUser.getEmail();
+        String phone =randomUser.generatePhoneNumber();
+        String pass = "1234";
+        String nid = "100200302";
+
+        UserModel regModel = new UserModel(name, email, pass, phone, nid, role);
+        RestAssured.baseURI = ConfigUtils.getProperty("base_url");
+
+        Response res =
+                given()
+                        .contentType("application/json")
+                        .header("Authorization", ConfigUtils.getProperty("token"))
+                        .header("X-AUTH-SECRET-KEY", "ROADTOSDET")
+                        .body(regModel)
+                        .when()
+                        .post("/user/create")
+                        .then()
+                        .assertThat().statusCode(201).extract().response();
+
+
+        JsonPath jsonRes = res.jsonPath();
+        jsonRes.prettyPrint();
+
+        if(role == "Customer"){
+            ConfigUtils.setProperty("user_id_2", jsonRes.get("user.id").toString());
+            ConfigUtils.setProperty("user_name_2", jsonRes.get("user.name"));
+            ConfigUtils.setProperty("user_email_2", jsonRes.get("user.email"));
+            ConfigUtils.setProperty("user_phone_2", jsonRes.get("user.phone_number"));
+        }else if(role=="Agent"){
+            ConfigUtils.setProperty("agent_id_2", jsonRes.get("user.id").toString());
+            ConfigUtils.setProperty("agent_name_2", jsonRes.get("user.name"));
+            ConfigUtils.setProperty("agent_email_2", jsonRes.get("user.email"));
+            ConfigUtils.setProperty("agent_phone_2", jsonRes.get("user.phone_number"));
+        }
+
+        return jsonRes.get("message");
+    }
 }

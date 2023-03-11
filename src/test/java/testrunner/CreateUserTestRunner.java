@@ -36,4 +36,11 @@ public class CreateUserTestRunner {
         Assert.assertTrue(msg.contains("User created"), "Agent creation unsuccessful");
     }
 
+    @Test(priority = 5, description = "Creating second user with valid credentials")
+    public void CreateSecondUserWithValidCreds(){
+        user = new Create();
+        String msg = user.createSecondUserWithValidCreds("Customer");
+        Assert.assertTrue(msg.contains("User created"), "User creation unsuccessful");
+    }
+
 }
