@@ -96,6 +96,8 @@ public class Deposit {
 
         JsonPath jsonPath = res.jsonPath();
         jsonPath.prettyPrint();
+        String transactionId = jsonPath.get("trnxId");
+        ConfigUtils.setProperty("transId", transactionId);
         return jsonPath.get("message");
     }
 }
